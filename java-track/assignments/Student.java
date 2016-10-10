@@ -13,8 +13,10 @@ public class Student {
 		this.studentID = studentID;
 		
 	}
-	
-	public void studentInit(String firstName, String lastName, int studentID, int credits, double GPA){
+
+
+	public Student(String firstName, String lastName, int studentID, int credits, double GPA){
+
 		
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -23,14 +25,16 @@ public class Student {
 		this.GPA = GPA;
 	}
 
-	public Student(String firstName, String lastName, int studentID, int credits, double GPA){
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.studentID = studentID;
-		this.credits = credits;
-		this.GPA = GPA;
-	
-	}
+
+//	public Student(String firstName, String lastName, int studentID, int credits, double GPA){
+//		this.firstName = firstName;
+//		this.lastName = lastName;
+//		this.studentID = studentID;
+//		this.credits = credits;
+//		this.GPA = GPA;
+//	
+//	}
+
 	
 	public String getName(){
 		
@@ -53,15 +57,18 @@ public class Student {
 	}
 	
 	public String getClassStanding(){
+
+
 		if (this.credits < 30){
 			return "Freshman";
 		}else if (this.credits < 60){
 			return "Sophomore";
-		}else if (this.credits < 90){
+		}else if (this.getCredits() < 90){
 			return "Junior";
 		}else return "Senior";
 		
 	}
+
 	
 	public void submitGrade( double courseGrade, int courseCredits){
 		//quality score= num of credits for a course*grade of a course 
