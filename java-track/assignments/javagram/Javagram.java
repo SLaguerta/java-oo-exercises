@@ -84,21 +84,15 @@ public class Javagram {
 	private static Filter getFilter(int filterID) {
 		
 		// TODO - create some more filters, and add logic to return the appropriate one
-		
-//		if(filterID == 1){
-//			
-//		return new BlueFilter();
-//		}
-//		else if(filterID == 2){
-//			return new GrayscaleFilter();
-//		}
-//		return null;
+	
 		Filter newFilter;
 		switch (filterID){
 		
 		case 1: newFilter = new BlueFilter();
 		break;
 		case 2: newFilter = new GrayscaleFilter();
+		break;
+		case 3: newFilter = new InvertFilter();
 		break;
 		default: throw new IllegalArgumentException ("Not a valid selection, select from listed filters");
 		}
