@@ -82,6 +82,9 @@ public class Javagram {
 			
 		return new BlueFilter();
 		}
+		else if(filterID == 2){
+			return new GrayscaleFilter();
+		}
 		return null;
 		
 	}
@@ -89,11 +92,11 @@ public class Javagram {
 	public static int displayFilterMenu(Scanner in){
 		System.out.println("Welcome to Javagram! Select a filter: ");
 		System.out.println("1. Blue filter");
-		System.out.println("2. Greyscale filter");
+		System.out.println("2. Grayscale filter");
 		System.out.println("3. Invert filter");
-		System.out.println("4. Exit");
+		
 		int filterID = in.nextInt();
-		while(filterID <0 || filterID > 4){
+		while(filterID <0 || filterID > 3){
 			System.out.println("Invalid selection, please try again:");
 			filterID = in.nextInt();
 		}
