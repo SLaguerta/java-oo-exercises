@@ -45,7 +45,14 @@ public class Javagram {
 	
 		// TODO - pass filter ID int to getFilter, and get an instance of Filter back 
 		
-		Filter filter = getFilter(filterID);			
+		Filter filter = null;
+		
+		try{
+			filter = getFilter(filterID);
+		} catch (IllegalArgumentException e){
+			System.out.println("Cannot filter image: Invalid filterID");
+			e.printStackTrace();
+		}
 
 		// filter and display image
 		Picture processed = filter.process(picture);
@@ -78,14 +85,24 @@ public class Javagram {
 		
 		// TODO - create some more filters, and add logic to return the appropriate one
 		
-		if(filterID == 1){
-			
-		return new BlueFilter();
+//		if(filterID == 1){
+//			
+//		return new BlueFilter();
+//		}
+//		else if(filterID == 2){
+//			return new GrayscaleFilter();
+//		}
+//		return null;
+		Filter newFilter;
+		switch (filterID){
+		
+		case 1: newFilter = new BlueFilter();
+		break;
+		case 2: newFilter = new GrayscaleFilter();
+		break;
+		default: throw new IllegalArgumentException ("Not a valid selection, select from listed filters");
 		}
-		else if(filterID == 2){
-			return new GrayscaleFilter();
-		}
-		return null;
+		return newFilter;
 		
 	}
 	
