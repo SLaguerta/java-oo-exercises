@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
 
-public class User {
+public class User extends Entity {
 
 	private String username;
 	private String password;
@@ -12,6 +12,7 @@ public class User {
 
 	public User (String username, String userPassword)
 	{
+		super();
 		this.username = username;
 		this.password = hashPassword(userPassword);
 		allUsers.add(this);
