@@ -1,5 +1,6 @@
 package blogz;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.ArrayList;
 
@@ -20,7 +21,7 @@ public class User {
 		return userPassword;
 	}
 	
-	private boolean isValidPassword(String password)
+	public boolean isValidPassword(String password)
 	{
 		if (password.equals(this.password))
 		{
@@ -30,18 +31,35 @@ public class User {
 			return false;
 		}
 	}
-	private static boolean isValidUsername(String username)
+	public static boolean isValidUsername(String username)
 	{
-		boolean valid = Pattern.matches("[a-zA-Z][a-zA-Z0-9_-]{4,11}", username);
-		if (valid){
-			return true;
+		Pattern p = Pattern.compile("[a-zA-Z][a-zA-Z0-9_-]{4,11}");
+		Matcher m = p.matcher(username);
+		boolean b = m.matches();
+		
+		if (b == false){
+			throw new IllegalArgumentException();
 		}
 		else {
-			return false;
+			return b;
 		}
+	}
+	
+	public String getUsername(){
+		return this.username;
 	}
 	
 	public static ArrayList getUsers(){
 		return allUsers;
+	}
+	
+	public static void main(String[] args){
+		User a = new User ("Sandra", "yourface");
+		User b = new User ("Morgan", "yourmom");
+		a.isValidPassword("yourface");
+		a.isValidUsername(a.username);
+		for (int i=0; i<User.getUsers().size(); i++){
+			System.out.println(((User) User.getUsers().get(i)).getUsername());
+			}
 	}
 }
