@@ -36,10 +36,36 @@ public class Fraction {
 	}
 	
 	//multiply itself by another fraction, returning new fraction product
-	//take the reciprocal of itself, returning that value as a new fraction
-	//fraction should be able to simplify itself, returning a simplification
+	public Fraction multiply(Fraction secondFraction){
+		int newNum = this.num * secondFraction.getNum();
+		int newDenom = this.denom * secondFraction.getDenom();
+		Fraction newFraction = new Fraction(newNum, newDenom);
+		return newFraction;
+	}
 	
-	//add fractions
+	//fraction should be able to simplify itself, returning a simplification
+	//find GCD with modulo?
+	
+	public int gcd(int x, int y){
+		int factor = y;
+		while(y != 0){
+			factor = y;
+			y = x % y;
+			x = factor;
+		}
+		return x;
+	}
+				
+	public Fraction simplify(){
+
+		int gcd = gcd(this.num, this.denom);
+		int newNum = this.num/gcd;
+		int newDenom = this.denom/gcd;
+		Fraction newFraction = new Fraction(newNum, newDenom);
+		return newFraction;
+		
+	}
+	
 	
 	
 /*public void reciprocal(){
@@ -59,12 +85,15 @@ public String toString(){
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Fraction myFraction = new Fraction(1, 3);
+		Fraction myFraction = new Fraction(2, 4);
 		System.out.println(myFraction);
 		System.out.println(myFraction.reciprocal());
 		Fraction yourFraction = new Fraction(4,5);
-		System.out.println(yourFraction.reciprocal());
 		System.out.println(myFraction.add(yourFraction));
+		System.out.println(myFraction.multiply(yourFraction));
+		System.out.println(myFraction.gcd(2,4));
+		System.out.println(yourFraction.simplify());
+		System.out.println(myFraction.simplify());
 	}
 
 }
