@@ -23,7 +23,7 @@ public class Robot {
 		return this.xPosition;
 	}
 	
-	public int getYPoisition() {
+	public int getYPosition() {
 		
 		return this.yPosition;
 	}
@@ -81,14 +81,15 @@ public class Robot {
 	
 	//calculate distance from other robot
 	//distance between two points formula
-	public void distance(Robot secondRobot){
+	public double distance(Robot secondRobot){
 		double xDiff = secondRobot.getXPosition()-this.xPosition;
-		double yDiff = secondRobot.getYPoisition()-this.yPosition;
+		double yDiff = secondRobot.getYPosition()-this.yPosition;
 		double sqXDiff = xDiff * xDiff; // or Math.pow(xDiff, 2)
 		double sqYDiff = yDiff * yDiff; // or Math.pow(yDiff,2)
 		double sumOfSqares = Math.abs(sqXDiff+sqYDiff);
 		double distance = Math.round(Math.sqrt(sumOfSqares)*100) / 100;
 		System.out.println("The distance between " + this.name + " and " + secondRobot.getName() + " is " + distance);
+		return distance;
 		
 	}
 	
