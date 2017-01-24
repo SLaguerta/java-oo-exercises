@@ -39,7 +39,7 @@ public class Robot {
 	//move the robot
 	
 	public void move(int newSpeed){
-		this.speed =newSpeed;
+		this.speed = newSpeed;
 		if(this.orientation.equals("North")||this.orientation.equals("north")){
 			this.yPosition+=this.speed;
 		}
@@ -100,9 +100,9 @@ public class Robot {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Robot myRobot = new Robot("Sandra", 0,0,0, "east");
+		Robot myRobot = new Robot("Sandra", 0,0,4, "east");
 		System.out.println(myRobot);
-		myRobot.move(1);
+		myRobot.move();
 		System.out.println(myRobot);
 		Robot yourRobot = new Robot("Gary", 0,0,0,"west");
 		System.out.println(yourRobot);
