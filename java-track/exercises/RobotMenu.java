@@ -75,7 +75,6 @@ public class RobotMenu {
 			System.out.println("Select second robot: ");
 			Robot s = selectRobot();
 			double distance = r.distance(s);
-			System.out.println("The sistance between the two robots is " + distance);
 		}
 	}
 
@@ -99,10 +98,6 @@ public class RobotMenu {
 	private void createRobot(){
 			System.out.println("Please enter the name of the robot:");
 			String name = s.next();
-			/**while (name != ""){
-				System.out.println("Invalid value. Please enter a name: ");
-				name = s.next();
-			}**/
 			
 			System.out.println("Please enter x-coordinate of robot: ");
 			int xpos = s.nextInt();
